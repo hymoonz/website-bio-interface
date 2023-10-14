@@ -1,0 +1,167 @@
+/****************************************************
+* General Settings
+****************************************************/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#app {
+    height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 400;
+    background: url('https://cdn.discordapp.com/attachments/1162819371358486622/1162870664521326602/giphy.gif?ex=653d82b3&is=652b0db3&hm=4558e76f9481914ed1c7935e1d9a40ab3c400f0795c11924e69208986dc4ffd4&') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    /* Fallback background color */
+    background-color: #333; /* Change to your desired color */
+}
+
+
+/* Style for video element */
+#background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Adjust as needed */
+    opacity: 0.5; /* Adjust the opacity as needed */
+    z-index: -1; /* Place the video behind other content */
+}
+
+.card,
+.front-face,
+.back-face,
+.contents {
+    position: absolute;
+}
+
+/****************************************************
+* Card Settings
+****************************************************/
+
+.card {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 400px;
+    width: 290px;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.front-face,
+.back-face {
+    height: 120%;
+    width: 120%;
+    text-align: center;
+    background: linear-gradient(rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), url('https://cdn.discordapp.com/attachments/1162819371358486622/1162870664521326602/giphy.gif?ex=653d82b3&is=652b0db3&hm=4558e76f9481914ed1c7935e1d9a40ab3c400f0795c11924e69208986dc4ffd4&');
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    transition: transform .7s cubic-bezier(.4, .2, .2, 1);
+}
+
+.back-face {
+    height: 120%;
+    width: 120%;
+    text-align: center;
+    background: linear-gradient(rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), url('https://cdn.discordapp.com/attachments/1162819371358486622/1162870664521326602/giphy.gif?ex=653d82b3&is=652b0db3&hm=4558e76f9481914ed1c7935e1d9a40ab3c400f0795c11924e69208986dc4ffd4&');
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    transition: transform .7s cubic-bezier(.4, .2, .2, 1);
+}
+
+.contents {
+    left: 0;
+    top: 50%;
+    width: 100%;
+    perspective: 100px;
+    transform: translateY(-50%) translateZ(100px) scale(.9999);
+}
+
+.icons {
+    margin: 10px 0;
+}
+
+.icons i {
+    color: #042f4b;
+    background: white;
+    font-size: 20px;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    line-height: 40px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+/****************************************************
+* Front Face
+****************************************************/
+
+.front p {
+    color: white;
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.front span {
+    color: white;
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.front p.bottom-bar::after {
+    content: '';
+    display: block;
+    left: 0;
+    right: 0;
+    height: 2px;
+    width: 150px;
+    background: white;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.card:hover>.front-face {
+    transform: rotateY(-180deg);
+}
+
+/****************************************************
+* Back Face
+****************************************************/
+
+.back {
+    color: white
+}
+
+.back h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    font-weight: 300;
+}
+
+.back span {
+    font-weight: 300;
+    font-size: 12px;
+}
+
+.back-face {
+    transform: rotateY(180deg);
+    background: linear-gradient(45deg, #0e0e0e 0%, #5a5a5a 100%);
+}
+
+.card:hover>.back-face {
+    transform: rotateY(0deg);
+}
